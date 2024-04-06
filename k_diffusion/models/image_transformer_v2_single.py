@@ -1055,7 +1055,6 @@ class ImageTransformerDenoiserModelV2(nn.Module):
 class HDiT(nn.Module):
     def __init__(
         self,
-        ###
         input_channels=3,
         patch_size=[4, 4],
         num_classes=0,
