@@ -1143,9 +1143,15 @@ class HDiT(nn.Module):
         return self.model(*args, **kwargs)
 
 
+def count_parameters(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+
 if __name__ == "__main__":
     model = HDiT()
     x = torch.randn(1, 3, 32, 32)
     sigma = torch.randn(1)
     y = model(x, sigma)
+    print("parameters: ", count_parameters(model))
+
     print(y.shape)
